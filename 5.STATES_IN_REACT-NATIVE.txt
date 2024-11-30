@@ -1,0 +1,18 @@
+import React, { useState } from 'react';
+import {Text, View, Button} from 'react-native';
+
+const App = () => {
+  let [old_name , new_name] = useState("Abishek"); 
+  function update_name(){
+    new_name("Abhishek Pawar");
+  }
+  return (
+    <View>
+      <Text style = {{fontSize :20,}}>States In REACT NATIVE</Text>
+      <Text style = {{fontSize : 40, fontWeight:900,}}>{old_name}</Text>
+      <Button title='UpDate Your Name' onPress={update_name}></Button> 
+    </View> 
+  );
+}; 
+
+export default App;

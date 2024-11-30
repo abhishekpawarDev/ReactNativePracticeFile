@@ -1,0 +1,29 @@
+import React from 'react';
+import {Text, View, Button} from 'react-native';
+import UserData from './mycomponents/UserData'
+
+const App = () => {
+  return (
+    <View>
+      <Text>Hello My Defult App !</Text>
+      <Text>PERSONAL DATA </Text>
+      <UserData/>
+      <Text>COMPANY DATA</Text>
+      <CompanyData/>
+    </View>
+     
+  );
+}; 
+
+
+const CompanyData = () => {
+  return (
+    <View>
+      <Text>Company_Name : PR Dev</Text>
+      <Text>Total Employ : 298</Text>
+      <Text>Email : prdevap@gmail.com</Text>
+    </View> 
+  );
+}; 
+
+export default App;

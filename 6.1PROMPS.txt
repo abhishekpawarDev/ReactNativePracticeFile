@@ -1,0 +1,23 @@
+import React from 'react';
+import {Text, View} from 'react-native';
+
+const app = () => {
+  let password = "Abhu8654";
+  return (
+    <View>
+      <Text>Promp in react native </Text>
+      <Myda password = {password}  />
+    </View>
+  );
+};
+
+const Myda = (props) => {
+  return (
+    <View>
+      <Text>8847034933</Text>
+      <Text>{props.password}</Text>
+    </View>
+  );
+};
+
+export default app;

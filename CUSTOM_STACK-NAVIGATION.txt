@@ -1,0 +1,38 @@
+import React from 'react';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native'
+import { authStylesheet } from '../../style.jsx/authStyle';
+const LoginScreen = ({changeScreen}) => {
+  return <>
+    <View>
+      <TextInput
+        placeholder='Enter Email'
+        style={authStylesheet.inputStyle}
+      />
+      <TextInput
+        placeholder='Password'
+        style={authStylesheet.inputStyle}
+      />
+    </View>
+    <View>
+      <TouchableOpacity onPress={()=>{changeScreen('Home')}}>
+        <Text>Log In </Text>
+      </TouchableOpacity>
+    </View></>
+}
+const AuthenticationScreen = () => {
+  const [screens, changeScreen] = React.useState('Login');
+
+
+  return (
+    <View style={authStylesheet.mainContainer}>
+      {screens === 'Login' ? <LoginScreen changeScreen={changeScreen} /> : <></>}
+      {screens === 'Home' ? <View><Text>Hello from Home</Text> <View>
+      <TouchableOpacity onPress={()=>{changeScreen('Login')}}>
+        <Text>Back </Text>
+      </TouchableOpacity>
+    </View></View> : <></>}
+    </View>
+  )
+}
+
+export default AuthenticationScreen;

@@ -1,0 +1,28 @@
+import React from 'react';
+import {Text, View, Button} from 'react-native';
+
+const App = () => {
+  function alert(){
+    console.warn("Congratulation! Program Is Work");
+  }
+  let a = "Hello User onPress event is working ";
+
+  function hello(){
+    console.warn(a);
+  }
+  return (
+    <View>
+      <Text style = {{fontSize :20,}}>Topic 4 Button And Onpress Event </Text>
+      <Button title='Hello User' onPress={hello}></Button>
+      <Text style={{fontSize :20,}}>First Buuton</Text>
+      
+      <Button title='Click Here' color={'black'} onPress={() => alert()}/> 
+    </View>
+     
+  );
+}; 
+
+
+
+
+export default App;

@@ -1,0 +1,34 @@
+import React, { useState } from 'react';
+import { Button, Text, View } from 'react-native';
+
+const App = () => {
+  const [show, setshow] = useState(false);
+  return (
+    <View>
+      <View>
+        <Text style={{ textAlign: "center", fontSize: 25, }}>Show / Hide Component !</Text>
+      </View>
+      <View>
+        <Text style={{ fontSize: 50, }}>Hello </Text>
+        <Button
+          title='Toogle Component (Show/hide)'
+          onPress={() => setshow(!show)}
+        />
+        {
+          show ? <User /> : null
+        }
+
+      </View>
+    </View>
+  );
+}
+
+const User = () => {
+  return (
+    <View>
+      <Text>Hello I Am  Component one click i am hide and return click a am show By defult i am hide </Text>
+    </View>
+  );
+}
+
+export default App;

@@ -1,0 +1,78 @@
+import React, { useState } from 'react';
+import { Text, TextInput, View, StyleSheet, Button } from 'react-native';
+
+const App = () => {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [display, setDisplay] = useState(false);
+
+  function resetFunction() {
+    setDisplay(false);
+    setUserName("");
+    setPassword("");
+    setEmail("");
+  }
+
+  return (
+    <View>
+      <Text style={{ fontSize: 25 }}>Simple Form In React Native!</Text>
+      {/* UserName Text Box */}
+      <TextInput
+        placeholder='Enter User Name'
+        onChangeText={setUserName}
+        style={styles.textInput}
+        value={userName}
+      />
+      {/* Password TextBox */}
+      <TextInput
+        placeholder='Enter User Password'
+        onChangeText={setPassword}
+        secureTextEntry={true}
+        style={styles.textInput}
+        value={password}
+      />
+      {/* Email Text Box */}
+      <TextInput
+        placeholder='Enter User Email'
+        onChangeText={setEmail}
+        style={styles.textInput}
+        value={email}
+      />
+
+      {/* Show User Details Button */}
+      <View style={styles.buttonStyle}>
+        <Button title='Show User Details' onPress={() => setDisplay(true)} />
+      </View>
+      {/* Clear User Detail Button */}
+      <View style={styles.buttonStyle}>
+        <Button title='Clear User Details' onPress={resetFunction} />
+      </View>
+      {/* Show Information Data */}
+      <View>
+        {display ? (
+          <View>
+            <Text>User Name is {userName}!</Text>
+            <Text>User Password is {password}!</Text>
+            <Text>User Email is {email}!</Text>
+          </View>
+        ) : null}
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  textInput: {
+    fontSize: 20,
+    color: "blue",
+    borderWidth: 2,
+    borderColor: "blue",
+    margin: 20,
+  },
+  buttonStyle: {
+    margin: 20,
+  }
+});
+
+export default App;

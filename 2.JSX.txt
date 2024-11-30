@@ -1,0 +1,20 @@
+import React from 'react';
+import {Text, View, Button} from 'react-native';
+
+const App = () => {
+  const name = "Abhishek Pawar";
+  let age = 21;
+  let email = "abhipawarraipur";
+  // Basically the Usage of JSX is we can write java script code in react-native
+  return (
+    <View>
+      <Text style={{fontSize: 20}}>Hello Text Component ! My name is {name} </Text>
+      <Text style={{fontSize: 20}}>I am {age} Year Old</Text>
+      <Text style={{fontSize: 20}}>My Email Id is {email}</Text> 
+
+      <Button title='Click Here'></Button>
+    </View>
+  );
+}; 
+
+export default App;

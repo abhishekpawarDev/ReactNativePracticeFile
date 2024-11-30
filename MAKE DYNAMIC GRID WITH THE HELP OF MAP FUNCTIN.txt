@@ -1,0 +1,103 @@
+import React from 'react';
+import { Text, View,StyleSheet, ScrollView } from 'react-native';
+
+const App = () => {
+    const wwelist = [
+        {
+            id: 10154,
+            name: " The Undertaker"
+        },
+        {
+            id: 10155,
+            name: " Vanshu"
+        },
+        {
+            id: 10156,
+            name: " Brock Lesnor"
+        },
+        {
+            id: 10157,
+            name: " John Cina"
+        },
+        {
+            id: 10158,
+            name: " Triple H"
+        },
+        {
+            id: 10159,
+            name: " Big Show"
+        },
+        {
+            id: 101510,
+            name: " Great Khali"
+        },
+        {
+            id: 101511,
+            name: "Shemas "
+        },
+        {
+            id: 101512,
+            name: "Mark Hanery"
+        },
+        {
+            id: 101513,
+            name: " The Undertaker"
+        },
+        {
+            id: 101544,
+            name: "Dean Ambroce "
+        },
+        {
+            id: 1014554,
+            name: " Seth Rolling"
+        },
+        {
+            id: 1015454,
+            name: " Coddie Rhodes"
+        },
+        {
+            id: 1015874,
+            name: "Randy Orton "
+        },
+        {
+            id: 10158718,
+            name: "Batista "
+        },
+        {
+            id: 101587874,
+            name: "Sting "
+        }
+    ]
+    return (
+        <View>
+            <Text style={{ fontSize: 20, padding: 10, margin: 15, textAlign: "center", textAlignVertical: "center", borderColor: "green", borderWidth: 1, backgroundColor: "yellow", borderRadius: 12, }}>MAKE DYNAMIC GRID WITH THE HELP OF MAP FUNCTIN</Text>
+            <ScrollView style = {{marginBottom:100,}}> 
+            <View style = {{flex : 1, flexDirection:"row", flexWrap:"wrap",}}>
+            {
+                wwelist.map((item) => <Text style = {styles.container}>{item.name}</Text>)
+            }   
+            </View>
+            </ScrollView>
+        </View>
+
+    );
+}
+
+const styles = StyleSheet.create({
+    container : {
+        textAlign:"center",
+        height:100,
+        width:150,
+        textAlignVertical:"center",
+        textAlign:"center",
+        backgroundColor:"green",
+        margin:10,
+        borderColor:"yellow",
+        borderWidth:3,
+        borderRadius:10,
+        fontSize:25,
+    }
+});
+
+
+export default App;

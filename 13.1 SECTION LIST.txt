@@ -1,0 +1,39 @@
+import React from 'react';
+import { SectionList, Text, View } from 'react-native';
+
+const App = () => {
+  const std_data = [
+    {
+        id : 1,
+        std_name : "Abhishek Pawar" ,
+        data : ["HTML" , "CSS" , "Java Script" , "React Natve" ]
+    },
+    {
+        id : 1,
+        std_name : "Peter Willams" ,
+        data : ["Ruby" , "Flutter" , "React JS"  ]
+    },
+    {
+        id : 1,
+        std_name : "Arnil Saha" ,
+        data : ["Angular" , "ASP.net" , "Python" , "HTML" ]
+    }
+]
+  return (
+    <View>
+      <Text>Hello, world!</Text>
+      <View>
+      <SectionList
+      sections={std_data}
+      renderItem={({item})=><Text>{item}</Text>}
+      renderSectionHeader={({section:{std_name}})=>(
+        <Text>{std_name}</Text>
+      )}
+      />
+      </View>
+    </View>
+    
+  );
+}
+
+export default App;

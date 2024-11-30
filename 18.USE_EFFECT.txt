@@ -1,0 +1,39 @@
+import React, { useEffect, useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+
+const App = () => {
+    const [count, setcount] = useState(0);
+
+    useEffect(() => {
+        return () => {
+            console.warn("Page is Mount(Loading)!");
+        };
+    },[])
+    return (
+        <View>
+            <Text style = {{fontSize:25,}}>Hello, world! {count}</Text>
+           <View style = {styles.buttonstyle}> 
+           <Button
+                title='Click Here to Increase'
+                onPress={() => setcount(count + 1)}
+            />
+            <Button
+                title='Click Here to Reset'
+                onPress={() => setcount(0)}
+            />
+            <Button
+                title='Click Here to Decrease'
+                onPress={() => setcount(count - 1)}
+            />
+           </View>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    buttonstyle : {
+        margin:12,
+    }
+});
+
+export default App;

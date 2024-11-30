@@ -1,0 +1,23 @@
+import React from 'react';
+import { Text, View , Platform, StyleSheet } from 'react-native';
+
+const App = () => {
+  return (
+    <View>
+      <Text  style = {{fontSize:30, textAlign:"center"}}>Platform! {Platform.OS}</Text>
+      {
+        Platform.OS == "android"?<Text style={{fontSize:25,}}>Hello Android User</Text>
+        :<Text style={{fontSize:25,}}> Hello IOS User s</Text>  
+      }
+      <Text style = {styles.users}>Hello Users Android User Is Green & IOS user is red </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  users : {
+    color: Platform.OS == "android"? "green" :"red"
+  }
+});
+
+export default App;

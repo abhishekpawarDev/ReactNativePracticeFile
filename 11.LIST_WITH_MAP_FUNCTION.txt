@@ -1,0 +1,101 @@
+import React from 'react';
+import { Text, View , ScrollView , StyleSheet } from 'react-native';
+
+const App = () => {
+
+const WWEList = [
+  {
+    id :10154,
+    name : " The Undertaker"
+  },
+  {
+    id :10155,
+    name : " Vanshu"
+  },
+  {
+    id :10156,
+    name : " Brock Lesnor"
+  },
+  {
+    id :10157,
+    name : " John Cina"
+  },
+  {
+    id :10158,
+    name : " Triple H"
+  },
+  {
+    id :10159,
+    name : " Big Show"
+  },
+  {
+    id :101510,
+    name : " Great Khali"
+  },
+  {
+    id :101511,
+    name : "Shemas "
+  },
+  {
+    id :101512,
+    name : "Mark Hanery"
+  },
+  {
+    id :101513,
+    name : " The Undertaker"
+  },
+  {
+    id :101544,
+    name : "Dean Ambroce "
+  },
+  {
+    id :1014554,
+    name : " Seth Rolling"
+  },
+  {
+    id :1015454,
+    name : " Coddie Rhodes"
+  },
+  {
+    id :1015874,
+    name : "Randy Orton "
+  },
+  {
+    id :10158718,
+    name : "Batista "
+  },
+  {
+    id :101587874,
+    name : "Sting "
+  },
+] 
+  return (
+    <View>
+      <Text style = {{fontSize : 19,}}>LIST WIH MAP FUNCTION ----CUSTOME !</Text>
+      <Text style = {{fontSize : 19, textAlign:"center",}}>WWE LEGEND</Text>
+      <ScrollView style = {{marginBottom :50 ,}}>
+        {
+        WWEList.map((item)=><Text style = {styles. wwe}t>{item.name}</Text>)
+      }
+      </ScrollView>
+    </View>
+  );
+}
+
+
+const styles = StyleSheet.create({
+  wwe : {
+    backgroundColor : "yellow",
+    borderWidth : 1,
+    borderColor:"red",
+    borderRadius: 15,
+    margin:5,
+    padding:10,
+    textAlign:"center",
+    fontSize:20,    
+  }
+});
+
+
+
+export default App;

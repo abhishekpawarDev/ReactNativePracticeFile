@@ -1,0 +1,35 @@
+import React, { useState } from 'react';
+import { Button, Text, TextInput, View } from 'react-native';
+
+const App = () => {
+    const [name , setname] = useState("");
+    const[hide , display] = useState(false);
+  return (
+    <View>
+      <Text>Hello, world!</Text>
+      <View>
+        <Text>Text Input</Text>
+        <TextInput
+        placeholder='Enter Your Name '
+        value={name}
+        style = {{borderWidth:2, textAlignVertical:"center", textAlign:"center",}}
+        onChangeText={(name)=>setname(name)}
+        />
+        <Button
+        title='Reset' 
+        onPress={()=>setname()}
+        />
+        <Button
+        title='Show' 
+        onPress={()=>display(true)}
+        />
+        {
+            hide?<Text>Hello Your Name Is {name}</Text> : null
+        }
+        
+      </View>
+    </View>
+  );
+}
+
+export default App;

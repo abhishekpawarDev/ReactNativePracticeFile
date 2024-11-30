@@ -1,0 +1,26 @@
+import React, { useState } from 'react';
+import {Button, Text, View} from 'react-native';
+
+const app = () => {
+  let password = "@Abhu8654";
+  return (
+   <View>
+    <Text>hELLO !</Text>
+    <Mypass password = {password}/>
+   </View>
+  );
+};
+
+const Mypass = (data) => {
+  let [fakepassword,realpassword] = useState("*********");
+  return (
+    <View>
+      <Text>+91-8847034933</Text>
+      <Button title='Show Password' onPress={()=>realpassword(data.password)}/>
+      <Text>{fakepassword}</Text> 
+
+    </View>
+  );
+};
+
+export default app;

@@ -1,0 +1,31 @@
+import React, { useState } from 'react';
+import { Text, View , ActivityIndicator , StyleSheet, Button} from 'react-native';
+
+const App = () => {
+  function display_loader(){
+    setshow(true);
+    // api call in 3 second 
+    setTimeout(() => {
+      setshow(false)
+    }, 3000);
+  }
+  const [show , setshow] = useState(false);
+  return (
+    <View style = {styles.mainwraap}>
+     {
+      show? <ActivityIndicator size={100}  color={"gold"} animating={show}/>:null
+     }
+      <Button title='Show Loadrer' onPress={display_loader}/> 
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  mainwraap : {
+    flex:1,
+    alignItems:"center",
+    justifyContent:"center",
+  } 
+});
+
+export default App;

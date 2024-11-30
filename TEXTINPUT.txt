@@ -1,0 +1,21 @@
+import React from 'react';
+import { Text } from 'react-native';
+import { TextInput } from 'react-native-paper';
+
+export default function componentName() {
+  return (
+    <>
+          <TextInput
+              placeholder="Enter Bank Account Name "
+              style={authStyle.TextInputAuth}
+              keyboardType="number-pad"
+              onChangeText={handleChange('bankAccountNumber')}
+              onBlur={handleBlur('bankAccountNumber')}
+              value={values.bankAccountNumber}
+          />
+          {touched.bankAccountNumber && errors.bankAccountNumber && (
+              <Text style={authStyle.showError}>{errors.bankAccountNumber}</Text>
+          )}
+    </>
+  );
+}

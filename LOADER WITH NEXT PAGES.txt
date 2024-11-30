@@ -1,0 +1,13 @@
+<TouchableOpacity style={calstyle.buttonstyle} onPress={async () => {
+                setIsLoading(true);
+                await new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(true);
+                    }, 20000);
+                });
+                setIsLoading(false);
+            }}>
+                <Text>
+                    {isLoading ? 'Loading...' : 'Done'}
+                </Text>
+            </TouchableOpacity>

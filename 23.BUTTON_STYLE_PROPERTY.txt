@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, TouchableHighlight, TouchableOpacity } from 'react-native';
+
+const App = () => {
+  const [value , setvalue] = useState(false);
+  return (
+    <View>
+      <View>
+      <Text  style = {{fontSize:20,textAlign:"center",}}>Style With Button In React Native !</Text>
+      </View>
+      <View>
+        <TouchableHighlight onPress={()=>setvalue(true)}>
+          <Text style = {styles.button1}>Submit Button !</Text>
+        </TouchableHighlight>
+       <View>
+        {
+          value?<Text>File Submit Succesfully</Text>:null
+        }
+       </View>
+        <TouchableHighlight>
+          <Text style = {styles.button2}>Delete Button !</Text>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <Text style = {styles.button3}>Reset Button !</Text>
+        </TouchableHighlight>
+        <TouchableOpacity>
+          <Text style = {styles.button1}>Defult Button</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  button1 : {
+    backgroundColor:"green",
+    color:"white",
+    padding:10,
+    margin:20,
+    textAlign:"center",
+    fontSize:20,
+    borderWidth:2,
+    borderRadius:10,
+  },
+  button2 : {
+    backgroundColor:"red",
+    color:"white",
+    padding:10,
+    margin:20,
+    textAlign:"center",
+    fontSize:20,
+    borderWidth:2,
+    borderRadius:10,
+  },
+  button3 : {
+    backgroundColor:"yellow",
+    color:"black",
+    padding:10,
+    margin:20,
+    textAlign:"center",
+    fontSize:20,
+    borderWidth:2,
+    borderRadius:10,
+  },
+});
+
+
+export default App;

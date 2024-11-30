@@ -1,0 +1,69 @@
+import React, { useState } from 'react';
+import { Text, TouchableOpacity, View ,StyleSheet} from 'react-native';
+
+const App = () => {
+  const [show1,show2] = useState(2)
+  return (
+    <View>
+    <TouchableOpacity onPress={()=>show2(1)}>
+      <View style = {styles.radiowrap}>
+        <View style = {styles.raddiobutton}>
+          {
+            show1 == 1 ? <View style = {styles.raddiobuttonbg}></View>:null
+          }
+        </View>
+        <View style= {styles.radiotextwrap}>
+          <Text style = {styles.radiotext}>Radio 1!</Text>
+        </View>
+      </View>
+    </TouchableOpacity >
+    <TouchableOpacity onPress={()=>show2(2)}>
+      <View style = {styles.radiowrap}>
+        <View style = {styles.raddiobutton}>
+          {
+            show1 == 2 ? <View style = {styles.raddiobuttonbg}></View>:null
+          }
+        </View>
+        <View style= {styles.radiotextwrap}>
+          <Text style = {styles.radiotext}>Radio 2!</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  radiowrap : {
+    flexDirection:"row",
+
+  },
+  radiotext : {
+    textAlign:"center",
+    fontSize:25,
+    textAlignVertical:"center",
+
+  },
+  raddiobutton : {
+    height:40,
+    width:40,
+    borderColor:"black",
+    borderWidth:2,
+    borderRadius:20,
+  },
+  raddiobuttonbg : {
+    backgroundColor:"black",
+    height:30,
+    width:30,
+    borderRadius:20,
+    margin:3,
+
+  },
+  radiotextwrap : {
+    textAlign:"center",
+    justifyContent:"center",
+
+  }
+});
+
+export default App;

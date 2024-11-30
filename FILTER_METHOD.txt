@@ -1,0 +1,11 @@
+<SelectField
+              label="Transport Mode"
+              value={size(filter(transportMode, { id: values.transport_mode })) > 0 ? filter(transportMode, { id: values.transport_mode })[0].value : ''}
+              errorText={touched.transport_mode ? errors.transport_mode : ''}
+              titlekey="value"
+              ModalStyle={{}}
+              listData={transportMode}
+              onChange={(item) => {
+                setFieldValue('transport_mode', item.id);
+              }}
+            />

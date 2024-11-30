@@ -1,0 +1,175 @@
+import React, { useState } from 'react';
+import { Text, TouchableOpacity, View, StyleSheet, Button } from 'react-native';
+import ResponsiveImage from 'react-native-responsive-image';
+import { image } from '../../assets';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { Formik } from 'formik';
+import * as yup from 'yup';
+import { TextInputField } from '../../components';
+import { TextInput } from 'react-native-paper';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserDetails } from '../../store/auth/reducer';
+import { increment /*, decrement*/, incrementByValue, decrementByValue, resetCounterValue } from '../../store/counter/counterSlice';
+const Login = (props) => {
+  const [isHide, setIsHide] = useState(true);
+  const dispatch = useDispatch();
+  const userDetail = useSelector((state) => {
+    return state.auth.userDetail;
+  });
+  const countervalue = useSelector((state) => {
+    return state.counter.value;
+  });
+  React.useEffect(() => {
+
+  }, [userDetail]);
+  const submitHandler = (values) => {
+    dispatch(setUserDetails(values));
+    // if (email && password) {
+    //   props.navigation.navigate('Home');
+    // } else {
+    //   // eslint-disable-next-line no-alert
+    //   alert('Please enter both email and password.');
+    // }
+  };
+
+  const validationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .required('Email is required')
+      .email('Please enter valid email'),
+    password: yup
+      .string()
+      .required('Password is required'),
+  });
+
+  return (
+    <KeyboardAwareScrollView style={styles.keybordawarescroolview}>
+      <View style={styles.main}>
+        <View style={styles.heading}>
+          <ResponsiveImage
+            source={image.MainLogo}
+            style={styles.logo}
+          />
+        </View>
+      </View>
+      <Text style={styles.label}>{countervalue}</Text>
+      <Formik
+        validationSchema={validationSchema}
+        validateOnBlur
+        enableReinitialize
+        initialValues={
+          {
+            email: '',
+            password: '',
+          }
+        }
+        onSubmit={submitHandler}
+      >
+        {({ handleChange, handleBlur, handleSubmit, errors, touched, isValid, isSubmitting }) => (<View style={styles.loginContent}>
+          <TextInputField
+            label="Email"
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            errorsText={touched.email ? errors.email : ''}
+          />
+          <TextInputField
+            secureTextEntry={isHide}
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            errorsText={touched.password ? errors.password : ''}
+            label="Password"
+            right={
+              <TextInput.Icon
+                forceTextInputFocus={false}
+                onPress={() => setIsHide(!isHide)}
+                icon={isHide ? 'eye-outline' : 'eye-off-outline'}
+              />}
+          />
+          <TouchableOpacity
+            style={styles.buttonStyle}
+            onPress={handleSubmit}
+            disabled={!isValid && isSubmitting}
+          >
+            <Text style={styles.buttonStyleText}>Log In</Text>
+          </TouchableOpacity>
+          <Button title="Increment" onPress={() => dispatch(increment())}/>
+          <Button title="Decrement"  onPress={() => dispatch({ type:'counter/decrement'})}/>
+          <Button title="IncrementBYVal" onPress={() => dispatch(incrementByValue(20))} />
+          <Button title="DecrementByVAl" onPress={() => dispatch(decrementByValue(20))} />
+          <Button title="reset" onPress={() => dispatch(resetCounterValue())} />
+        </View>)}
+      </Formik>
+    </KeyboardAwareScrollView>
+  );
+};
+
+// Styles for the component
+const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    padding: 20,
+    marginTop: 70,
+  },
+  heading: {
+    alignItems: 'center',
+    marginBottom: 50,
+  },
+  headingText: {
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
+  loginContent: {
+  },
+  textInput: {
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 10,
+    padding: 10,
+    fontSize: 15,
+  },
+  label: {
+    fontSize: 20,
+    marginBottom: 5,
+    fontWeight: 'bold',
+  },
+  buttonStyle: {
+    backgroundColor: '#90dfaa',
+    padding: 10,
+    alignItems: 'center',
+    borderRadius: 5,
+    marginVertical: 20,
+  },
+  buttonStyleText: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  passwordContainer: {
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 10,
+    paddingLeft: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  inputPswd: {
+    fontSize: 15,
+    flex: 1,
+  },
+  showHideText: {
+    fontSize: 15,
+    marginRight: 10,
+    fontWeight: 'bold',
+    color: '#0000cd',
+  },
+  logo: {
+    height: 160,
+    width: 330,
+    margin: 20,
+  },
+  keybordawarescroolview: {
+    marginHorizontal: 15,
+  },
+});
+
+export default Login;

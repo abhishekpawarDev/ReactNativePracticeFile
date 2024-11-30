@@ -1,0 +1,31 @@
+import React, {useState} from 'react';
+import {Button, Text, View, StyleSheet} from 'react-native';
+
+const app = () => {
+  return (
+    <View>
+      <Text style = {styles.container}>Hello My Name Is Abhishek Pawar</Text>
+      <Text style = {styles.container}>Hello My Name Is Samya Raina</Text>
+      <Text style = {styles.container2}>Hello My Name Is Gourav Kapoor</Text>
+      <Text  style = {styles.container2}>Hello My Name Is Asish Solanki</Text>
+      <Text style = {{fontSize:22, color :'Green', backgroundColor:'yellow' , margin:25,}}>hello i am Maheep Singh</Text>
+    </View> 
+  );
+};
+
+const styles=StyleSheet.create({
+  container: {
+    fontSize: 20,
+    color: 'brown',
+    backgroundColor:"pink",
+    margin:25,
+  },
+  container2 : {
+    fontSize:21,
+    color:'red',
+    backgroundColor:'black',
+    margin:25,
+  }
+})
+
+export default app;

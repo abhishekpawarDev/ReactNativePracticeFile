@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+const LoginForm = () => {
+    const [userArray, setUserArray] = useState([]);
+    const [searchVal, setSearchVal] = useState("");
+    const filterHandler = async () => {
+        const res = [
+            {
+                id: 1,
+                first_name: "test",
+                last_name: "user",
+                email: "test@app.com",
+                phone_number: "1234567890",
+                password: "1234",
+                created_at: "2024-09-26t12:05:34.000z",
+                updated_at: "2024-09-26t12:05:34.000z",
+            },
+            {
+                id: 2,
+                first_name: "hansraj",
+                last_name: "hathi",
+                email: "testing",
+                phone_number: "1234567890",
+                password: "1234",
+                created_at: "2024-09-26T14:20:18.000Z",
+                updated_at: "2024-09-26T14:20:18.000Z",
+            },
+        ];
+        if (res) {
+            const filteredDetails = res.filter(item => {
+                // return item.first_name === searchVal;
+                return item.first_name.includes(searchVal)
+            });
+            setUserArray(filteredDetails);
+        }
+    };
+    return (
+        <div>
+            <input
+                placeholder="Search..."
+                onChange={(e) => {
+                    setSearchVal(e.target.value);
+                }}
+            />
+            <button onClick={filterHandler}>Search</button>
+            <br />
+            <br />
+            <br />
+            <br />
+            {userArray?.length !== 0
+                ? <>
+                    User Details<br /><br />
+                    {userArray?.map((item) => {
+                        console.log();
+                        
+                        return <>
+                            <div>User Name: {item.first_name} {item.last_name}</div>
+                            <div>User Email: {item.email}</div>
+                            <div>User Phone No.: {item.phone_number}</div><br />
+                        </>;
+                    })}</>
+                : "No Records"}
+        </div>
+    );
+};
+export default LoginForm;

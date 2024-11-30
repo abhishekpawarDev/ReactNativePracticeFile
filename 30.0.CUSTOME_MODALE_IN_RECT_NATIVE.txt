@@ -1,0 +1,63 @@
+import React, { useState } from 'react';
+import { Text, View , StyleSheet, Button } from 'react-native';
+
+const App = () => {
+  const [show , setshow] = useState(false);
+  function close(){
+    setshow(false)
+  }
+  return (
+    <View style = {styles.main}>
+        {
+          show ? <View  style={styles.mainmodalwarapper}>
+          <View>
+            <View style = {styles.modaldecoration}>
+              <Text style= {styles.textdecoraton}>Hello I Am Custom Modal</Text>
+              <Button
+              title='Close Modale'
+              onPress={()=>close()}
+              />
+            </View>
+          </View>
+        </View>:null
+        }
+        <View style = {styles.Buttonstyle}>
+          <Button
+          title='Open Modal'
+          onPress={()=>setshow(true)}
+          />
+        </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  main : {
+    flex:1,
+  },
+  mainmodalwarapper : {
+flex:1,
+flexDirection:"column",
+justifyContent:"center"
+  },
+  Buttonstyle : {
+    flex:1,
+    justifyContent:"center"
+  },
+  modaldecoration : {
+    backgroundColor:"#e6e6fa",
+    padding:30,
+    margin:10,
+    borderRadius:10,
+    shadowColor:"black",
+    elevation:20,
+    paddingBottom:50,
+    paddingTop:50,
+  },
+  textdecoraton : {
+    fontSize:25,
+    paddingBottom:20,
+  } 
+});
+
+export default App;

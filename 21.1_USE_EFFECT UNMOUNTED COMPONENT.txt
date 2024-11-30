@@ -1,0 +1,38 @@
+import React, { useState , useEffect} from 'react';
+import { Button, Text, View } from 'react-native';
+
+const App = () => {
+  const [show, setshow] = useState(true);
+  return (
+    <View>
+      <View>
+        <Text style={{ fontSize: 20, textAlign: "center", }}>Use Effect For Unmounted Component !</Text>
+      </View>
+      <View>
+        <Button
+          title='Toogle Button'
+          onPress={() => setshow(!show)}
+        /> 
+        {
+          show?<Userdata/>:null
+        }
+      </View>
+    </View>
+  );
+}
+
+const Userdata = ()=>{
+ useEffect(() => {
+  return()=>{
+    console.warn("User call is unmounte");
+    
+  }
+ }, )
+  return(
+    <View>
+      <Text>Hello I am User Component </Text>
+    </View>
+  );
+}
+
+export default App;

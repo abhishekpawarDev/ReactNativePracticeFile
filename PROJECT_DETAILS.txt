@@ -1,0 +1,6 @@
+<TouchableOpacity onPress={()=>props.navigation.navigate("Home")}>
+        <Text>Log In</Text>
+      </TouchableOpacity>
+Completetripdetails
+#90dfaa
+Transport_details_form

@@ -1,0 +1,49 @@
+import React from 'react';
+import { Button, Text, TextInput, View } from 'react-native';
+import {NavigationContainer} from "@react-navigation/native"
+import {createNativeStackNavigator} from "@react-navigation/native-stack"
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+function rytbtn(){
+  console.warn("This Is Right Button");
+  
+}
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Log In !' component={LogIn}
+        options={{
+          headerRight:()=><Button title='Right btn' onPress={()=>rytbtn()}/>
+        }}
+        />
+        <Stack.Screen name='Welcome' component={Home}
+        options={{
+          headerRight:()=><Button title='Right btn' onPress={()=>rytbtn()}/>
+        }} 
+        /> 
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const Home = () => {
+  return(
+    <View>
+      <Text>Hello I am Home </Text>
+    </View>
+  );
+}
+
+
+const LogIn = (props) => {
+  return(
+    <View style = {{flex:1, justifyContent:"center", alignItems:"center",}}>
+      <TextInput placeholder='Enter Your Name' style = {{borderWidth:1, padding:20, borderRadius:5,  margin:20,}}/>
+      <Button title='Enter You Name ' onPress={()=> props.navigation.navigate("Welcome")}/>
+    </View>
+  );
+}
+export default App;

@@ -1,0 +1,57 @@
+import React from 'react';
+import { Text, View, FlatList, StyleSheet } from 'react-native';
+
+const App = () => {
+
+  const mytodolist = [
+    {
+      id: 197401,
+      Student_Name: "Abhishek Pawar"
+    },
+    {
+      id: 197402,
+      Student_Name: "Arpit Bala"
+    },
+    {
+      id: 197403,
+      Student_Name: "Samaya Raina "
+    },
+    {
+      id: 197404,
+      Student_Name: "Anubhav Singh Bassi "
+    },
+    {
+      id: 197405,
+      Student_Name: "Abhishek Upmanyu"
+    }
+
+  ]
+
+  return (
+    <View>
+      <Text>List With Flat List Component!</Text>
+      <FlatList
+        data={mytodolist}
+        renderItem={({ item }) => <Text style={styles.Flat_list}>{item.Student_Name}</Text>}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  Flat_list: {
+    backgroundColor: "green",
+    fontSize: 20,
+    margin: 10,
+    borderWidth: 2,
+    borderRadius: 10,
+    borderColor: "red",
+    padding: 10,
+    flex: 1,
+    alignContent: "center",
+    textAlign: "center",
+  }
+});
+
+
+export default App;

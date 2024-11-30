@@ -1,0 +1,28 @@
+import React, { useState } from 'react';
+import { Text, View , ActivityIndicator, Button} from 'react-native';
+
+const App = () => {
+const [show,setshow] = useState(false)
+function displayloaderfun(){
+setshow(true)
+// 3 Second api call 
+setTimeout(() => {
+  setshow(false)
+}, 3000);
+}
+  return (
+    <View>
+      <Text  style = {{fontSize:20, textAlign:"center"}}>ActivityIndicator!</Text>
+      <View>
+        <ActivityIndicator size={100}  color = "gold"animating={show} />
+        <Button
+        title='Loader'
+        onPress={()=>displayloaderfun()} 
+        />
+
+      </View>
+    </View>
+  );
+}
+
+export default App;

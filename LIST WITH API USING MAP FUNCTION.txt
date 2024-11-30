@@ -1,0 +1,59 @@
+import React, { useEffect, useState } from 'react';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
+
+const App = () => {
+  const [data, setData] = useState([]);
+
+  const getAPIDatas = async () => {
+    try {
+      const url = "https://jsonplaceholder.typicode.com/posts";
+      let result = await fetch(url);
+      result = await result.json();
+      setData(result); // Update the state with the fetched data
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
+  }
+
+  useEffect(() => {
+    getAPIDatas();
+  }, []);
+
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+      <Text style={styles.title}>API Call!</Text>
+      {
+        data.length ? 
+          data.map((item) => (
+            <View key={item.id} style={styles.item}>
+              <Text>User ID: {item.userId}</Text>
+              <Text>title: {item.title}</Text>
+              <Text>body: {item.body}</Text>
+            </View>
+          ))
+          : <Text>No data available</Text>
+      }
+    </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20
+  },
+  title: {
+    fontSize: 20,
+    textAlign: "center",
+    marginBottom: 20
+  },
+  item: {
+    marginBottom: 10
+  }
+});
+
+export default App;

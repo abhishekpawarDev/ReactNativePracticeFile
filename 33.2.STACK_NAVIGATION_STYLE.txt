@@ -1,0 +1,113 @@
+import React from 'react';
+import { Text, TextInput, View, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+      screenOptions={{
+        title : "Wecome Log In",
+        headerTitleStyle:{
+          fontSize:30,
+        },
+        headerStyle:{
+          backgroundColor:"#40e0d0"
+        },
+        headerTintColor:"white",
+
+      }}
+      >
+        <Stack.Screen name='Log In' component={LogIn}
+        options={{
+          title : "Wecome Log In",
+          headerTitleStyle:{
+            fontSize:30,
+          },
+          headerStyle:{
+            backgroundColor:"#00ff00"
+          },
+          headerTintColor:"white",
+  
+        }}
+        />
+        <Stack.Screen name='Home' component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const Home = () => {
+  return (
+    <View style={styles.homeContainer}>
+      <Text style={styles.header}>Welcome To My Application</Text>
+      <Text style={styles.info}>Information</Text>
+      <Text style={styles.infoText}>
+        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+      </Text>
+    </View>
+  );
+};
+
+const LogIn = ({ navigation }) => {
+  return (
+    <View style={styles.loginContainer}>
+      <Text style={styles.header}>Enter User Name and Password</Text>
+      <TextInput placeholder='Enter Username' style={styles.input} />
+      <TextInput placeholder='Password' secureTextEntry={true} style={styles.input} />
+      <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate("Home")}>
+        <Text style={styles.loginButtonText}>Log In</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  homeContainer: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  info: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  infoText: {
+    fontSize: 16,
+    textAlign: "center",
+  },
+  loginContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  input: {
+    borderWidth: 2,
+    borderRadius: 5,
+    width: '80%',
+    padding: 10,
+    marginBottom: 20,
+  },
+  loginButton: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "#40e0d0",
+  },
+  loginButtonText: {
+    fontSize: 20,
+  },
+});
+
+export default App;

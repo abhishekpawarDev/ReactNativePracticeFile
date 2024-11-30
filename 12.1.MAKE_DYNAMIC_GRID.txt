@@ -1,0 +1,42 @@
+import React from 'react';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+
+const App = () => {
+    return (
+        <View>
+            <Text style={{ fontSize: 25, textAlign:"center", margin:20, padding : 20,backgroundColor:"yellow", borderRadius:12, borderWidth:2, borderColor:'green', }  }>Make Dynamic Grid !</Text>
+           <ScrollView style = {{marginBottom :50, }}>
+           <View style={{ flex: 1, flexDirection: 'row', flexWrap: "wrap", }}>
+                <Text style={styles.Grid}>Grid1 !</Text>
+                <Text style={styles.Grid}>Grid2 !</Text>
+                <Text style={styles.Grid}>Grid3 !</Text>
+                <Text style={styles.Grid}>Grid4 !</Text>
+                <Text style={styles.Grid}>Grid5 !</Text>
+                <Text style={styles.Grid}>Grid6 !</Text>
+                <Text style={styles.Grid}>Grid17 !</Text>
+                <Text style={styles.Grid}>Grid 8!</Text>
+                <Text style={styles.Grid}>Grid 9 !</Text>
+                <Text style={styles.Grid}>Grid10 !</Text>
+            </View>
+           </ScrollView>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    Grid: {
+        backgroundColor: "green",
+        height:150,
+        width:150,
+        borderWidth:2,
+        borderColor:"yellow",
+        borderRadius:10,
+        textAlignVertical:"center",
+        textAlign:"center",
+        fontSize:30,
+        color:'yellow',
+        margin:12,
+    }
+});
+
+export default App;
